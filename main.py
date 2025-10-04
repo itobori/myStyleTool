@@ -19,20 +19,18 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 
 		self.mainLayout = QtWidgets.QVBoxLayout()
 		self.setLayout(self.mainLayout)
-		self.setStyleSheet('background-color: 323438);')
-
-
+		self.setStyleSheet('background-color: #C92448;')
 
 		self.imageLabel = QtWidgets.QLabel()
-		self.imagePixmap = QtGui.QPixmap(f"{ROOT_RESOURCE_DIR}/image/smile.png")
+		self.imagePixmap = QtGui.QPixmap(f"{ROOT_RESOURCE_DIR}/image/Spiderman-Logo.png")
 		scaled_pixmap = self.imagePixmap.scaled(
-			QtCore.QSize(64,64),
+			QtCore.QSize(164,164),
 			QtCore.Qt.KeepAspectRatio,
 			QtCore.Qt.SmoothTransformation
 		)
 
 		self.imageLabel.setPixmap(scaled_pixmap)
-		self.imageLabel.setAlignment(QtCore.Qt.AlignLeft)
+		self.imageLabel.setAlignment(QtCore.Qt.AlignCenter)
 
 
 		self.mainLayout.addWidget(self.imageLabel)
@@ -41,6 +39,18 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 		self.mainLayout.addLayout(self.nameLayout)
 		self.nameLabel = QtWidgets.QLabel('name')
 		self.nameLineEdit = QtWidgets.QLineEdit()
+		self.nameLineEdit.setStyleSheet(
+			'''
+				QLineEdit {
+					color : back;
+					background-color: white;
+					font-size: 29px;
+					font-weight: bold;
+
+
+				}
+			'''
+			)
 		self.nameLayout.addWidget(self.nameLabel)
 		self.nameLayout.addWidget(self.nameLineEdit)
 
@@ -51,7 +61,7 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 		self.createButton.setStyleSheet(
 			'''
 				QPushButton {
-					background-color: #B3DB4F;
+					background-color: #023EA6;
 					color: white;
 					border-radius: 10px;
 					font-size: 16px;
@@ -60,7 +70,7 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 					font-weight: bold;
 				}
 				QPushButton:hover {
-					background-color: #637D2E;
+					background-color: #40CAFF;
 
 				}
 				QPushButton:pressed {
@@ -73,7 +83,7 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 		self.cancleButton.setStyleSheet(
 			'''
 				QPushButton {
-					background-color: #FF0044;
+					background-color: #80001F;
 					color: white;
 					border-radius: 10px;
 					font-size: 16px;
@@ -82,7 +92,7 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 					font-weight: bold;
 				}
 				QPushButton:hover {
-					background-color: #7D2E3E;
+					background-color: #FF0000;
 
 				}
 				QPushButton:pressed {
