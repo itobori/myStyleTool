@@ -1,1 +1,1 @@
-main
+from pyside2 import QtCore, QtGui, QtWidgets
