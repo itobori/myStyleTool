@@ -9,7 +9,7 @@ except:
 # from shiboken2 import wrapInstance
 import maya.OpenMayaUI as omui
 
-ROOT_RESOURCE_DIR = 'C:/Users/itobo/OneDrive/เอกสาร/maya/2024/scripts/myStlyeTool'
+ROOT_RESOURCE_DIR = 'C:/Users/itobo/OneDrive/เอกสาร/maya/2024/scripts/myStlyeTool/recouse'
 
 class MyStyleToolDialog(QtWidgets.QDialog):
 	def __init__(self,parent=None):
@@ -21,9 +21,20 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 		self.setLayout(self.mainLayout)
 		self.setStyleSheet('background-color: 323438);')
 
+
+
 		self.imageLabel = QtWidgets.QLabel()
 		self.imagePixmap = QtGui.QPixmap(f"{ROOT_RESOURCE_DIR}/image/smile.png")
-		self.imageLabel.setPixmap(self.imagePixmap)
+		scaled_pixmap = self.imagePixmap.scaled(
+			QtCore.QSize(64,64),
+			QtCore.Qt.KeepAspectRatio,
+			QtCore.Qt.SmoothTransformation
+		)
+
+		self.imageLabel.setPixmap(scaled_pixmap)
+		self.imageLabel.setAlignment(QtCore.Qt.AlignLeft)
+
+
 		self.mainLayout.addWidget(self.imageLabel)
 
 		self.nameLayout = QtWidgets.QHBoxLayout()
@@ -82,6 +93,7 @@ class MyStyleToolDialog(QtWidgets.QDialog):
 		)
 		self.buttonLayout.addWidget(self.createButton)
 		self.buttonLayout.addWidget(self.cancleButton)
+
 
 		self.mainLayout.addStretch()
 
